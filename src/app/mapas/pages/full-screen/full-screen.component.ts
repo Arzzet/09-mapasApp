@@ -23,10 +23,29 @@ export class FullScreenComponent implements OnInit {
     var map = new mapboxgl.Map({
     container: 'mapa',
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: [2.142905, 41.409254],
-    zoom: 15
+    center: [this.getRandomLong(), this.getRandomLat()],
+    zoom: this.getRandomZoom()
     });
 
+  }
+
+  getRandomLat(){
+    // var lat =  Math.random() * (41.40 - 41.39) + 41.39; // para bcn
+    var lat =  Math.random() * (180)-90; // para todo el mundo
+    console.log(lat);
+    return lat;
+  }
+
+  getRandomLong(){
+    // var long =  Math.random() * (2.14 - 2.15) + 2.15;  // para bcn
+    var long =  Math.random() * (360)-180;  // para todo el mundo
+    console.log(long);
+    return long;
+  }
+  getRandomZoom(){
+    var zoom = Math.floor(Math.random() * (20));
+    console.log(zoom);
+    return zoom;
   }
 
 }
